@@ -23,3 +23,34 @@ other clients and the 1_input and 2_input directory respectively for the files t
 1_mirror and 2_mirror to save the downloaded files. The goal is for clients to get started
 to communicate autonomously so that after some time everyone has a copy of everything
 archives.
+
+### script create_infiles.sh
+
+In this script our goal is to create a hierarchy of files and directories that will
+used as input by each client. The script create_infiles.sh works
+as follows:
+
+### Execution:
+
+./create_infiles.sh dir_name num_of_files num_of_dirs levels 
+- dir_name: the directory where the files will be written.
+- num_of_files: the total number of files
+- num_of_dirs: the total number of directories
+- levels: how many levels the directories will be distributed
+
+### script get_stats.sh 
+
+The purpose of this script is to process logfiles from all clients and extract them
+statistics. The script will run as:
+
+### Execution:
+
+cat log_file1 log_file2 … log_filen | ./get_stats.sh and prints:
+
+- How many clients connected and who (a list of all ids from clients)
+- The minimum and maximum id of clients
+- The number of bytes sent
+- The number of bytes read
+- The number of files sent
+- The number of files downloaded
+- The number of clients that left the system
